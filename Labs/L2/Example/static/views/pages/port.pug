@@ -1,0 +1,44 @@
+extends ../layout.pug
+
+block prepend styles
+  link(rel='stylesheet' href='//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css')
+
+block content
+  div(class='breadcrumb')
+    li= title
+  form(id='port-add-form' name='port-add-form' class='form-inline' action='')
+    div(class='form-group')
+      div(class='col-md-3')
+        label(for='name') Name
+      div(class='col-md-9')
+        input(id='name' name='name' value='' class='form-control' required='required')
+    div(class='form-group')
+      div(class='col-md-3')
+        label(for='country') Country
+      div(class='col-md-9')
+        select(id='country' name='country' value='' class='form-control' required='required')
+          option(value='') Select country
+          option(value='ca') Canada
+          option(value='en') England
+          option(value='pl') Poland
+          option(value='ua') Ukraine
+          option(value='us') USA
+    div(class='form-group')
+      div(class='col-md-3')
+        label(for='number') Number
+      div(class='col-md-9')
+        input(id='number' name='number' type='number' value='' class='form-control' required='required')
+    div(class='form-group')
+      div(class='col-md-3')
+        label(for='address') Address
+      div(class='col-md-9')
+        input(id='address' name='address' value='' class='form-control')        
+    div(class='form-group')
+      div(class='col-md-12')
+        button(type='submit' class='btn btn-primary') Create
+    div.list-wrapper
+      table(id='port-list')
+block append scripts
+  script(src='/static/js/models/port.js')
+  script(src='//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js')
+  script(src='/static/js/views/port.js')
