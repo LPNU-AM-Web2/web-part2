@@ -34,14 +34,14 @@ class BaseModel {// eslint-disable-line no-unused-vars
     localStorage.setItem(this.collectionName, JSON.stringify(collection))
   }
   Delete (id) {
-    let portData = this.Select();
-    for(let i = 0; i < portData.length; ++i) {
-      if(portData[i].id == id) {
-        portData.splice(i, 1);
+    let collection = this.Select();
+    for(let i = 0; i < collection.length; ++i) {
+      if(collection[i].id == id) {
+        collection.splice(i, 1);
         break;
       }
     }
-    this.Commit(portData);
+    this.Commit(collection);
   }
   /**
    * @param {Number} id
